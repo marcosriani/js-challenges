@@ -15,11 +15,12 @@
  *
  * @returns {string} John Smith
  */
-const firstName = "John";
-const lastName = "Smith";
+const firstName = 'John';
+const lastName = 'Smith';
 
 export const createFullName = () => {
   // Write your code here
+  return `${firstName} ${lastName}`;
 };
 
 /**
@@ -33,6 +34,11 @@ const largeNumber2 = 200;
 
 export const findLargestNumber = () => {
   // Write your code here
+  if (largeNumber1 > largeNumber2) {
+    return largeNumber1;
+  } else {
+    return largeNumber2;
+  }
 };
 
 /**
@@ -46,6 +52,7 @@ const addNumber2 = 24;
 
 export const addNumbers = () => {
   // Write your code here
+  return addNumber1 + addNumber2;
 };
 
 /* Intermediate Challenges */
@@ -56,10 +63,11 @@ export const addNumbers = () => {
  *
  * @returns {number} the length of the string
  */
-const password = "thisIsMyVeryLongPassword123456789";
+const password = 'thisIsMyVeryLongPassword123456789';
 
 export const findLengthOfPassword = () => {
   // Write your code here
+  return password.length;
 };
 
 /**
@@ -72,10 +80,19 @@ export const findLengthOfPassword = () => {
  *
  * @returns {string} This is a string
  */
-const thing = "I am a thing";
+const thing = 'I am a thing';
 
 export const findType = () => {
   // Write your code here
+  if (typeof thing === 'string') {
+    return 'This is a string';
+  } else if (typeof thing === 'number') {
+    return 'This is a number';
+  } else if (typeof thing === 'boolean') {
+    return 'This is a boolean';
+  } else {
+    return "I don't know what this thing is";
+  }
 };
 
 /**
@@ -85,10 +102,18 @@ export const findType = () => {
  *
  * @returns {boolean} true || false
  */
-const nameTagOption = "Timothy";
+const nameTagOption = 'Timothy';
 
 export const getIsValidOnNameTag = () => {
   // Write your code here
+  if (
+    nameTagOption.length <= 8 &&
+    nameTagOption[0] !== nameTagOption[0].toLowerCase()
+  ) {
+    return true;
+  } else {
+    false;
+  }
 };
 
 /* Advanced Challenges */
@@ -99,10 +124,11 @@ export const getIsValidOnNameTag = () => {
  *
  * @returns {number} The number converted from the string "32.87" -> 32.87
  */
-const stringToConvert = "14.45";
+const stringToConvert = '14.45';
 
 export const convertStringToNumber = () => {
   // Write your code here
+  return parseFloat(stringToConvert);
 };
 
 /**
@@ -113,10 +139,18 @@ export const convertStringToNumber = () => {
  *
  * @returns {boolean} true || false
  */
-const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
+const stringWithUppercaseLetters = 'I Am A String With Uppercase Letters';
 
 export const getHasUppercaseLetters = () => {
   // Write your code here
+
+  const arrayOfString = stringWithUppercaseLetters.split('');
+
+  for (let i = 0; i < arrayOfString.length; i++) {
+    if (/^[A-Z]*$/.test(arrayOfString[i])) {
+      return true;
+    }
+  }
 };
 
 /* Expert Challenge */
@@ -127,8 +161,22 @@ export const getHasUppercaseLetters = () => {
  *
  * @returns {string} i_want_to_be_snake_case
  */
-const pascalCaseVariableName = "IWantToBeSnakeCase";
+const pascalCaseVariableName = 'IWantToBeSnakeCase';
 
 export const convertPascalCaseToSnakeCase = () => {
   // Write your code here
+  let myArr = [];
+  let stringArray = pascalCaseVariableName.split('');
+
+  stringArray[0] = stringArray[0].toLowerCase();
+
+  stringArray.forEach((item) => {
+    if (item === item.toUpperCase()) {
+      myArr.push(`_${item.toLowerCase()}`);
+    } else {
+      myArr.push(item);
+    }
+  });
+
+  return myArr.join('');
 };
